@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: employees
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/employees/**
+          filters:
+            - ValidateReferrerGatewayFilter
+server:
+  port: 8888
